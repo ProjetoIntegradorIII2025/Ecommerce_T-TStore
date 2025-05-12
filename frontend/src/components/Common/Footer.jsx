@@ -41,22 +41,22 @@ const Footer = () => {
           <h3 className="text-lg text-gray-800 mb-4">Produtos</h3>
           <ul className="space-y-2 text-gray-600">
             <li>
-              <Link to="#" className="hover:text-gray-500 transition-colors">
+              <Link to="/collections/all?gender=Masculino" className="hover:text-gray-500 transition-colors" onClick={() => window.scrollTo(0, 0)}>
                 Masculino
               </Link>
             </li>
             <li>
-              <Link to="#" className="hover:text-gray-500 transition-colors">
+              <Link to="/collections/all?gender=Feminino" className="hover:text-gray-500 transition-colors" onClick={() => window.scrollTo(0, 0)}>
                 Feminino
               </Link>
             </li>
             <li>
-              <Link to="#" className="hover:text-gray-500 transition-colors">
+              <Link to="/collections/all?gender=Infantil" className="hover:text-gray-500 transition-colors" onClick={() => window.scrollTo(0, 0)}>
                 Infantil
               </Link>
             </li>
             <li>
-              <Link to="#" className="hover:text-gray-500 transition-colors">
+              <Link to="/collections/all?gender=Unisex" className="hover:text-gray-500 transition-colors" onClick={() => window.scrollTo(0, 0)}>
                 Unissex
               </Link>
             </li>
@@ -68,22 +68,22 @@ const Footer = () => {
           <h3 className="text-lg text-gray-800 mb-4">Ajuda</h3>
           <ul className="space-y-2 text-gray-600">
             <li>
-              <Link to="#" className="hover:text-gray-500 transition-colors">
+              <Link to="#" className="hover:text-gray-500 transition-colors" onClick={() => window.scrollTo(0, 0)}>
                 Contato
               </Link>
             </li>
             <li>
-              <Link to="#" className="hover:text-gray-500 transition-colors">
+              <Link to="#" className="hover:text-gray-500 transition-colors" onClick={() => window.scrollTo(0, 0)}>
                 Sobre Nós
               </Link>
             </li>
             <li>
-              <Link to="#" className="hover:text-gray-500 transition-colors">
+              <Link to="#" className="hover:text-gray-500 transition-colors" onClick={() => window.scrollTo(0, 0)}>
                 Dúvidas Frequentes
               </Link>
             </li>
             <li>
-              <Link to="#" className="hover:text-gray-500 transition-colors">
+              <Link to="#" className="hover:text-gray-500 transition-colors" onClick={() => window.scrollTo(0, 0)}>
                 Recursos
               </Link>
             </li>

@@ -9,8 +9,6 @@ import { fetchProductsByFilters } from "../redux/slices/productsSlice";
 
 /**
  * Página de Coleção - Exibe produtos filtrados por coleção
- * 
- * @returns {JSX.Element} Componente da página de coleção
  */
 const CollectionPage = () => {
   const { collection } = useParams();

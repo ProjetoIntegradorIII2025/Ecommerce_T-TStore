@@ -142,7 +142,6 @@ const AddProductPage = () => {
             value={productData.sku}
             onChange={handleChange}
             className="w-full border border-gray-300 rounded-md p-2"
-            required
           />
         </div>
 
@@ -191,6 +190,7 @@ const AddProductPage = () => {
               })
             }
             className="w-full border border-gray-300 rounded-md p-2"
+            required
           />
         </div>
 
@@ -210,6 +210,7 @@ const AddProductPage = () => {
               })
             }
             className="w-full border border-gray-300 rounded-md p-2"
+            required
           />
         </div>
 
@@ -226,7 +227,7 @@ const AddProductPage = () => {
         </div>
 
         {/* Material */}
-        <div className="mb-6">
+        {/*<div className="mb-6">
           <label className="block font-semibold mb-2">Material</label>
           <input
             type="text"
@@ -235,7 +236,7 @@ const AddProductPage = () => {
             onChange={handleChange}
             className="w-full border border-gray-300 rounded-md p-2"
           />
-        </div>
+        </div>*/}
 
         {/* Gênero */}
         <div className="mb-6">
@@ -249,7 +250,7 @@ const AddProductPage = () => {
             <option value="">Selecione o Gênero</option>
             <option value="men">Masculino</option>
             <option value="women">Feminino</option>
-            <option value="unisex">Infantil</option>
+            <option value="kids">Infantil</option>
             <option value="unisex">Unissex</option>
           </select>
         </div>

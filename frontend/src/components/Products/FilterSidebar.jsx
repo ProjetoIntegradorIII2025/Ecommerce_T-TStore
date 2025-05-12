@@ -3,8 +3,6 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 
 /**
  * Componente de filtro lateral para produtos
- * 
- * @returns {JSX.Element} Componente de barra lateral de filtros
  */
 const FilterSidebar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,7 +12,7 @@ const FilterSidebar = () => {
     gender: "",
     color: "",
     size: [],
-    material: [],
+    /**material: [],**/
     brand: [],
     minPrice: 0,
     maxPrice: 1000, // Alterado para valor mais realista em R$
@@ -22,7 +20,7 @@ const FilterSidebar = () => {
 
   const [priceRange, setPriceRange] = useState([0, 1000]);
 
-  const categories = ["Superiores", "Inferiores", "Calçados", "Acessórios"];
+  const categories = ["Calçados", "Acessórios"];
 
   const colors = [
     "Vermelho",
@@ -37,7 +35,7 @@ const FilterSidebar = () => {
     "Azul Marinho",
   ];
 
-  const sizes = ["PP", "P", "M", "G", "GG", "XGG"];
+  const sizes = ["15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45", ];
 
   const materials = [
     "Algodão",
@@ -51,12 +49,15 @@ const FilterSidebar = () => {
   ];
 
   const brands = [
-    "Fio Urbano",
-    "Estilo Moderno",
-    "Moda Rua",
-    "Brisa Marítima",
-    "Fashionista",
-    "Estilo Chic",
+    "Nike",
+    "Adidas",
+    "Olympikus",
+    "Puma",
+    "Asics",
+    "New Balance",
+    "Fila",
+    "Converse",
+    "Vans",
   ];
 
   const genders = ["Masculino", "Feminino", "Infantil", "Unissex"];
@@ -80,7 +81,6 @@ const FilterSidebar = () => {
 
   /**
    * Manipula mudanças nos filtros
-   * @param {Object} e - Evento do elemento
    */
   const handleFilterChange = (e) => {
     const { name, value, checked, type } = e.target;
@@ -101,7 +101,6 @@ const FilterSidebar = () => {
 
   /**
    * Atualiza os parâmetros da URL com os filtros atuais
-   * @param {Object} newFilters - Objeto com os filtros atualizados
    */
   const updateURLParams = (newFilters) => {
     const params = new URLSearchParams();
@@ -120,7 +119,6 @@ const FilterSidebar = () => {
 
   /**
    * Manipula mudança no filtro de preço
-   * @param {Object} e - Evento do elemento range
    */
   const handlePriceChange = (e) => {
     const newPrice = e.target.value;
@@ -199,27 +197,29 @@ const FilterSidebar = () => {
 
       {/* Filtro de Tamanho */}
       <div className="mb-6">
-        <label className="block text-gray-600 font-medium mb-2">Tamanho</label>
-        {sizes.map((size) => (
-          <div key={size} className="flex items-center mb-1">
-            <input
-              type="checkbox"
-              name="size"
-              id={`size-${size}`}
-              value={size}
-              onChange={handleFilterChange}
-              checked={filters.size.includes(size)}
-              className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
-            />
-            <label htmlFor={`size-${size}`} className="text-gray-700 cursor-pointer">
-              {size}
-            </label>
-          </div>
-        ))}
+  <label className="block text-gray-600 font-medium mb-2">Tamanho</label>
+  <div className="grid grid-cols-2 gap-2">
+    {sizes.map((size) => (
+      <div key={size} className="flex items-center mb-1">
+        <input
+          type="checkbox"
+          name="size"
+          id={`size-${size}`}
+          value={size}
+          onChange={handleFilterChange}
+          checked={filters.size.includes(size)}
+          className="mr-2 h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300"
+        />
+        <label htmlFor={`size-${size}`} className="text-gray-700 cursor-pointer">
+          {size}
+        </label>
       </div>
+    ))}
+  </div>
+</div>
 
       {/* Filtro de Material */}
-      <div className="mb-6">
+      {/*<div className="mb-6">
         <label className="block text-gray-600 font-medium mb-2">Material</label>
         {materials.map((material) => (
           <div key={material} className="flex items-center mb-1">
@@ -237,7 +237,7 @@ const FilterSidebar = () => {
             </label>
           </div>
         ))}
-      </div>
+      </div>*/}
 
       {/* Filtro de Marca */}
       <div className="mb-6">
@@ -270,7 +270,7 @@ const FilterSidebar = () => {
           name="priceRange"
           min={0}
           max={1000}
-          step={50}
+          step={10}
           value={priceRange[1]}
           onChange={handlePriceChange}
           className="w-full h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer"

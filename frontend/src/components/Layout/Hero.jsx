@@ -24,10 +24,11 @@ const Hero = () => {
             Explore nossos produtos para férias com envio rápido para todo o estado.
           </p>
           <Link
-            to="#"
+            to="/collections/all"
             className="bg-white text-gray-950 px-6 py-2 rounded-sm text-lg"
+            onClick={() => window.scrollTo(0, 0)}
           >
-            Comprar Agora
+            Compre Agora
           </Link>
         </div>
       </div>

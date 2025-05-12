@@ -90,7 +90,7 @@ const NewArrivals = () => {
         <h2 className="text-3xl font-bold mb-4">Novos Lançamentos</h2>
         <p className="text-lg text-gray-600 mb-8">
           Descubra as últimas tendências direto da passarela, adicionadas recentemente
-          para manter seu guarda-roupa na vanguarda da moda.
+          para manter seu guarda-roupa na moda.
         </p>
 
         {/* Botões de Scroll */}

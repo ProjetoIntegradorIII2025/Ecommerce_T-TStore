@@ -29,7 +29,7 @@ const FeaturesSection = () => {
           <div className="p-4 rounded-full mb-4 bg-gray-50" aria-hidden="true">
             <HiArrowPathRoundedSquare className="text-xl text-gray-800" />
           </div>
-          <h4 className="tracking-tighter mb-2 font-medium">TROCA EM 45 DIAS</h4>
+          <h4 className="tracking-tighter mb-2 font-medium">TROCA EM 7 DIAS</h4>
           <p className="text-gray-600 text-sm tracking-tighter">
             Garantia de satisfação
           </p>

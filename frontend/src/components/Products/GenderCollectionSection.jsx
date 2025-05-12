@@ -4,8 +4,6 @@ import womensCollectionImage from "../../assets/womens-collection.webp";
 
 /**
  * Seção de Coleções por Gênero - Exibe as coleções masculina e feminina
- * 
- * @returns {JSX.Element} Componente de seção de coleções por gênero
  */
 const GenderCollectionSection = () => {
   return (
@@ -24,9 +22,10 @@ const GenderCollectionSection = () => {
               Coleção Feminina
             </h2>
             <Link
-              to="/collections/all?gender=Women"
+              to="/collections/all?gender=Feminino"
               className="text-gray-900 underline hover:text-gray-700 transition-colors"
               aria-label="Ver coleção feminina"
+              onClick={() => window.scrollTo(0, 0)}
             >
               Compre Agora
             </Link>
@@ -46,9 +45,10 @@ const GenderCollectionSection = () => {
               Coleção Masculina
             </h2>
             <Link
-              to="/collections/all?gender=Men"
+              to="/collections/all?gender=Masculino"
               className="text-gray-900 underline hover:text-gray-700 transition-colors"
               aria-label="Ver coleção masculina"
+              onClick={() => window.scrollTo(0, 0)}
             >
               Compre Agora
             </Link>

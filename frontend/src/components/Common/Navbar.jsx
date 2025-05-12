@@ -42,19 +42,19 @@ const Navbar = () => {
         {/* Links de Navegação (Desktop) */}
         <div className="hidden md:flex space-x-6">
           <Link
-            to="/collections/all?gender=Men"
+            to="/collections/all?gender=Masculino"
             className="text-gray-700 hover:text-black text-sm font-medium uppercase"
           >
             Masculino
           </Link>
           <Link
-            to="/collections/all?gender=Women"
+            to="/collections/all?gender=Feminino"
             className="text-gray-700 hover:text-black text-sm font-medium uppercase"
           >
             Feminino
           </Link>
           <Link
-            to="/collections/all?gender=Kids"
+            to="/collections/all?gender=Infantil"
             className="text-gray-700 hover:text-black text-sm font-medium uppercase"
           >
             Infantil
@@ -129,21 +129,21 @@ const Navbar = () => {
           <h2 className="text-xl font-semibold mb-4">Menu</h2>
           <nav className="space-y-4">
             <Link
-              to="/collections/all?gender=Men"
+              to="/collections/all?gender=Masculino"
               onClick={toggleNavDrawer}
               className="block text-gray-600 hover:text-black"
             >
               Masculino
             </Link>
             <Link
-              to="/collections/all?gender=Women"
+              to="/collections/all?gender=Feminino"
               onClick={toggleNavDrawer}
               className="block text-gray-600 hover:text-black"
             >
               Feminino
             </Link>
             <Link
-              to="/collections/all?gender=Kids"
+              to="/collections/all?gender=Infantil"
               onClick={toggleNavDrawer}
               className="block text-gray-600 hover:text-black"
             >

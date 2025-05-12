@@ -1,95 +1,79 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Configurações base da API
 const API_URL = `${import.meta.env.VITE_BACKEND_URL}`;
 const USER_TOKEN = `Bearer ${localStorage.getItem("userToken")}`;
 
-// Busca todos os produtos (admin)
+// async thunk to fetch admin products
 export const fetchAdminProducts = createAsyncThunk(
   "adminProducts/fetchProducts",
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await axios.get(`${API_URL}/api/admin/products`, {
-        headers: { Authorization: USER_TOKEN },
-      });
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
+  async () => {
+    const response = await axios.get(`${API_URL}/api/admin/products`, {
+      headers: {
+        Authorization: USER_TOKEN,
+      },
+    });
+    return response.data;
   }
 );
 
-// Cria um novo produto
+// async function to create a new product
 export const createProduct = createAsyncThunk(
   "adminProducts/createProduct",
-  async (productData, { rejectWithValue }) => {
-    try {
-      const response = await axios.post(
-        `${API_URL}/api/admin/products`,
-        productData,
-        { headers: { Authorization: USER_TOKEN } }
-      );
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
+  async (productData) => {
+    const response = await axios.post(
+      `${API_URL}/api/admin/products`,
+      productData,
+      {
+        headers: {
+          Authorization: USER_TOKEN,
+        },
+      }
+    );
+    return response.data;
   }
 );
 
-// Atualiza um produto existente
+// async thunk to update an existing product
 export const updateProduct = createAsyncThunk(
   "adminProducts/updateProduct",
-  async ({ id, productData }, { rejectWithValue }) => {
-    try {
-      const response = await axios.put(
-        `${API_URL}/api/admin/products/${id}`,
-        productData,
-        { headers: { Authorization: USER_TOKEN } }
-      );
-      return response.data;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
+  async ({ id, productData }) => {
+    const response = await axios.put(
+      `${API_URL}/api/admin/products/${id}`,
+      productData,
+      {
+        headers: {
+          Authorization: USER_TOKEN,
+        },
+      }
+    );
+    return response.data;
   }
 );
 
-// Remove um produto
+// async thunk to delete a product
 export const deleteProduct = createAsyncThunk(
   "adminProducts/deleteProduct",
-  async (id, { rejectWithValue }) => {
-    try {
-      await axios.delete(`${API_URL}/api/admin/products/${id}`, {
-        headers: { Authorization: USER_TOKEN },
-      });
-      return id;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
+  async (id) => {
+    await axios.delete(`${API_URL}/api/products/${id}`, {
+      headers: { Authorization: USER_TOKEN },
+    });
+    return id;
   }
 );
 
 const adminProductSlice = createSlice({
   name: "adminProducts",
   initialState: {
-    products: [],    // Lista de produtos
-    loading: false,  // Estado de carregamento
-    error: null,     // Mensagem de erro
-    success: false,  // Indica se uma operação foi bem-sucedida
+    products: [],
+    loading: false,
+    error: null,
   },
-  reducers: {
-    // Reducer para limpar mensagens de sucesso/erro
-    clearProductMessages: (state) => {
-      state.error = null;
-      state.success = false;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
-      // Busca de produtos
       .addCase(fetchAdminProducts.pending, (state) => {
         state.loading = true;
-        state.error = null;
       })
       .addCase(fetchAdminProducts.fulfilled, (state, action) => {
         state.loading = false;
@@ -97,64 +81,28 @@ const adminProductSlice = createSlice({
       })
       .addCase(fetchAdminProducts.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload?.message || "Falha ao carregar produtos";
+        state.error = action.error.message;
       })
-
-      // Criação de produto
-      .addCase(createProduct.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-        state.success = false;
-      })
+      //   Create Product
       .addCase(createProduct.fulfilled, (state, action) => {
-        state.loading = false;
         state.products.push(action.payload);
-        state.success = "Produto criado com sucesso!";
       })
-      .addCase(createProduct.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload?.message || "Falha ao criar produto";
-      })
-
-      // Atualização de produto
-      .addCase(updateProduct.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-        state.success = false;
-      })
+      //   Update Product
       .addCase(updateProduct.fulfilled, (state, action) => {
-        state.loading = false;
         const index = state.products.findIndex(
-          (p) => p._id === action.payload._id
+          (product) => product._id === action.payload._id
         );
-        if (index !== -1) state.products[index] = action.payload;
-        state.success = "Produto atualizado com sucesso!";
+        if (index !== -1) {
+          state.products[index] = action.payload;
+        }
       })
-      .addCase(updateProduct.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload?.message || "Falha ao atualizar produto";
-      })
-
-      // Exclusão de produto
-      .addCase(deleteProduct.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-        state.success = false;
-      })
+      //   Delete Product
       .addCase(deleteProduct.fulfilled, (state, action) => {
-        state.loading = false;
         state.products = state.products.filter(
-          (p) => p._id !== action.payload
+          (product) => product._id !== action.payload
         );
-        state.success = "Produto removido com sucesso!";
-      })
-      .addCase(deleteProduct.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload?.message || "Falha ao remover produto";
       });
   },
 });
 
-// Exporta as actions e o reducer
-export const { clearProductMessages } = adminProductSlice.actions;
 export default adminProductSlice.reducer;
