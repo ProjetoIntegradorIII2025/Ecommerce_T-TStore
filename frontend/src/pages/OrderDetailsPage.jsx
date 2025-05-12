@@ -117,7 +117,7 @@ const OrderDetailsPage = () => {
           </div>
 
           {/* Link para voltar aos pedidos */}
-          <Link to="/meus-pedidos" className="text-blue-500 hover:underline">
+          <Link to="/my-orders" className="text-blue-500 hover:underline">
             Voltar para Meus Pedidos
           </Link>
         </div>

@@ -18,7 +18,7 @@ const OrderConfirmationPage = () => {
       localStorage.removeItem("cart");
     } else {
       // Redireciona se não houver dados de checkout
-      navigate("/meus-pedidos");
+      navigate("/my-orders");
     }
   }, [checkout, dispatch, navigate]);
 
