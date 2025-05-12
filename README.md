@@ -1,4 +1,4 @@
-# 🛒 T&T Store - E-commerce para Microempreendedores
+# 🛒 T&T Store - Plataforma de Vendas Online
 
 ## 📖 Sobre
 
