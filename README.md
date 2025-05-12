@@ -7,12 +7,19 @@ Este projeto é uma aplicação de e-commerce desenvolvida como parte da discipl
 ## 🚀 Tecnologias Utilizadas
 
 - **Frontend**:
-
+  - [React](https://reactjs.org/)
+  - [Vite](https://vitejs.dev/)
+  - [Redux Toolkit](https://redux-toolkit.js.org/)
+  - [Tailwind CSS](https://tailwindcss.com/)
 
 - **Backend**:
-
+  - [Node.js](https://nodejs.org/)
+  - [Express.js](https://expressjs.com/)
+  - [MongoDB](https://www.mongodb.com/)
+  - [Cloudinary](https://cloudinary.com/)
 
 - **Hospedagem**:
+  - [Vercel](https://vercel.com/)
  
 
 ## 🛠️ Funcionalidades
@@ -23,7 +30,7 @@ Este projeto é uma aplicação de e-commerce desenvolvida como parte da discipl
 - **Checkout**: Processo de compra simples com opções de pagamento.
 
 ## 📸 Demonstração
-- **Link do Site**: 
+- **Link do Site**: https://ecommerce-t-t-store-vc8p.vercel.app/
 
 ## 📂 Estrutura do Projeto
 O projeto está organizado em duas pastas principais:
