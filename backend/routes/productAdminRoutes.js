@@ -17,4 +17,16 @@ router.get("/", protect, admin, async (req, res) => {
   }
 });
 
+// POST /api/admin/products
+router.post("/", protect, admin, async (req, res) => {
+  try {
+    const product = new Product({ ...req.body, user: req.user._id });
+    const createdProduct = await product.save();
+    res.status(201).json(createdProduct);
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ message: error.message });
+  }
+});
+
 module.exports = router;
